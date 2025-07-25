@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Button, Pressable, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Link, Stack } from "expo-router";
+import { Link, Stack, useRouter } from "expo-router";
 import { LegendList } from "@legendapp/list";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import type { RouterOutputs } from "~/utils/api";
 import { trpc } from "~/utils/api";
-import { authClient } from "~/utils/auth";
+import { authClient } from "~/utils/auth-client";
 
 function PostCard(props: {
   post: RouterOutputs["post"]["all"][number];
@@ -99,23 +99,31 @@ function CreatePost() {
 }
 
 function MobileAuth() {
+  const router = useRouter();
   const { data: session } = authClient.useSession();
-
+  console.log("session", session);
+  const handleLogin = async () => {
+    await authClient.signIn.email(
+      {
+        email: "sanjaylamba3@gmail.com",
+        password: "password",
+        //   callbackURL: "/",
+      },
+      {
+        onSuccess: () => {
+          router.push("/");
+        },
+      },
+    );
+  };
   return (
     <>
       <Text className="pb-2 text-center text-xl font-semibold text-zinc-900">
         {session?.user.name ? `Hello, ${session.user.name}` : "Not logged in"}
       </Text>
       <Button
-        onPress={() =>
-          session
-            ? authClient.signOut()
-            : authClient.signIn.social({
-                provider: "discord",
-                callbackURL: "/",
-              })
-        }
-        title={session ? "Sign Out" : "Sign In With Discord"}
+        onPress={() => (session ? authClient.signOut() : handleLogin())}
+        title={session ? "Sign Out" : "Sign In With Email"}
         color={"#5B65E9"}
       />
     </>
@@ -140,7 +148,7 @@ export default function Index() {
       <Stack.Screen options={{ title: "Home Page" }} />
       <View className="h-full w-full bg-background p-4">
         <Text className="pb-2 text-center text-5xl font-bold text-foreground">
-          Create <Text className="text-primary">T3333</Text> Turbo
+          Create <Text className="text-primary">T3</Text> Turbo
         </Text>
 
         <MobileAuth />

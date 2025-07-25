@@ -5,6 +5,7 @@ import {
   useQueryClient,
   useSuspenseQuery,
 } from "@tanstack/react-query";
+import { toast } from "sonner";
 
 import type { RouterOutputs } from "@acme/api";
 import { CreatePostSchema } from "@acme/db/schema";
@@ -19,7 +20,8 @@ import {
   useForm,
 } from "@acme/ui/form";
 import { Input } from "@acme/ui/input";
-import { toast } from "@acme/ui/toast";
+
+// import { toast } from "@acme/ui/components/ui/sonner";
 
 import { useTRPC } from "~/trpc/react";
 
@@ -39,6 +41,7 @@ export function CreatePostForm() {
       onSuccess: async () => {
         form.reset();
         await queryClient.invalidateQueries(trpc.post.pathFilter());
+        toast.success("Post created");
       },
       onError: (err) => {
         toast.error(
@@ -124,6 +127,7 @@ export function PostCard(props: {
     trpc.post.delete.mutationOptions({
       onSuccess: async () => {
         await queryClient.invalidateQueries(trpc.post.pathFilter());
+        toast.success("Post deleted");
       },
       onError: (err) => {
         toast.error(

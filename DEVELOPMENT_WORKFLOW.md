@@ -61,13 +61,18 @@ Start Development Servers
 🗄️ Database Commands
 
 # Database development
-	pnpm db:push                  # Push schema changes to database
-	pnpm db:studio                # Open Drizzle Studio (database GUI)
+	
+    pnpm db:push                  # Push schema to Neon database  
+    pnpm db:studio                # Open Drizzle Studio
+    pnpm db:generate              # Generate migration files
+    pnpm db:migrate               # Apply migrations
 	
 # From packages/db directory
 	cd packages/db
 	pnpm push                     # Push schema changes
 	pnpm studio                   # Open database studio
+    pnpm generate                 # Generate migration files
+    pnpm migrate                  # Apply migrations
 
 🔐 Authentication Commands
 
@@ -189,3 +194,191 @@ Start Development Servers
 - New components: Use pnpm ui-add instead of manual installation
 - Expo development: Keep Metro bundler running, use r to reload
 - Android issues: Try npx expo run:android --clear to clear cache
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# INITIAL STRUCTURE
+earnex-monorepo/
+├── .env.example
+├── .github/
+│   ├── DISCUSSION_TEMPLATE/
+│   │   └── ideas.yml
+│   ├── FUNDING.yml
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml
+│   │   └── config.yml
+│   ├── renovate.json
+│   └── workflows/
+│       └── ci.yml
+├── .gitignore
+├── .npmrc
+├── .nvmrc
+├── .vscode/
+│   ├── extensions.json
+│   ├── launch.json
+│   └── settings.json
+├── DEVELOPMENT_WORKFLOW.md
+├── LICENSE
+├── README.md
+├── apps/
+│   ├── expo/
+│   │   ├── .expo-shared/
+│   │   ├── .prettierignore
+│   │   ├── app.config.ts
+│   │   ├── assets/
+│   │   │   ├── icon-dark.png
+│   │   │   └── icon-light.png
+│   │   ├── babel.config.js
+│   │   ├── eas.json
+│   │   ├── eslint.config.mjs
+│   │   ├── index.ts
+│   │   ├── metro.config.js
+│   │   ├── nativewind-env.d.ts
+│   │   ├── package.json
+│   │   ├── src/
+│   │   │   ├── app/
+│   │   │   │   ├── _layout.tsx
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── post/
+│   │   │   │       └── [id].tsx
+│   │   │   ├── styles.css
+│   │   │   └── utils/
+│   │   │       ├── api.tsx
+│   │   │       ├── auth.ts
+│   │   │       ├── base-url.ts
+│   │   │       └── session-store.ts
+│   │   ├── tailwind.config.ts
+│   │   ├── tsconfig.json
+│   │   └── turbo.json
+│   └── nextjs/
+│       ├── README.md
+│       ├── eslint.config.js
+│       ├── next.config.js
+│       ├── package.json
+│       ├── postcss.config.cjs
+│       ├── public/
+│       │   ├── favicon.ico
+│       │   └── t3-icon.svg
+│       ├── src/
+│       │   ├── app/
+│       │   │   ├── _components/
+│       │   │   │   ├── auth-showcase.tsx
+│       │   │   │   └── posts.tsx
+│       │   │   ├── api/
+│       │   │   │   ├── auth/
+│       │   │   │   │   └── [...all]/
+│       │   │   │   │       └── route.ts
+│       │   │   │   └── trpc/
+│       │   │   │       └── [trpc]/
+│       │   │   │           └── route.ts
+│       │   │   ├── globals.css
+│       │   │   ├── layout.tsx
+│       │   │   └── page.tsx
+│       │   ├── auth/
+│       │   │   ├── client.ts
+│       │   │   └── server.ts
+│       │   ├── env.ts
+│       │   └── trpc/
+│       │       ├── query-client.ts
+│       │       ├── react.tsx
+│       │       └── server.tsx
+│       ├── tailwind.config.ts
+│       ├── tsconfig.json
+│       └── turbo.json
+├── package.json
+├── packages/
+│   ├── api/
+│   │   ├── eslint.config.js
+│   │   ├── package.json
+│   │   ├── src/
+│   │   │   ├── index.ts
+│   │   │   ├── root.ts
+│   │   │   ├── router/
+│   │   │   │   ├── auth.ts
+│   │   │   │   └── post.ts
+│   │   │   └── trpc.ts
+│   │   └── tsconfig.json
+│   ├── auth/
+│   │   ├── env.ts
+│   │   ├── eslint.config.js
+│   │   ├── package.json
+│   │   ├── src/
+│   │   │   └── index.ts
+│   │   └── tsconfig.json
+│   ├── db/
+│   │   ├── drizzle.config.ts
+│   │   ├── eslint.config.js
+│   │   ├── migrations/
+│   │   │   ├── 0000_overjoyed_dreadnoughts.sql
+│   │   │   └── meta/
+│   │   │       ├── 0000_snapshot.json
+│   │   │       └── _journal.json
+│   │   ├── package.json
+│   │   ├── src/
+│   │   │   ├── auth-schema.ts
+│   │   │   ├── client.ts
+│   │   │   ├── index.ts
+│   │   │   └── schema.ts
+│   │   ├── test-connection.ts
+│   │   └── tsconfig.json
+│   ├── ui/
+│   │   ├── components.json
+│   │   ├── eslint.config.js
+│   │   ├── package.json
+│   │   ├── src/
+│   │   │   ├── button.tsx
+│   │   │   ├── dropdown-menu.tsx
+│   │   │   ├── form.tsx
+│   │   │   ├── index.ts
+│   │   │   ├── input.tsx
+│   │   │   ├── label.tsx
+│   │   │   ├── theme.tsx
+│   │   │   └── toast.tsx
+│   │   └── tsconfig.json
+│   └── validators/
+│       ├── eslint.config.js
+│       ├── package.json
+│       ├── src/
+│       │   └── index.ts
+│       └── tsconfig.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── tooling/
+│   ├── eslint/
+│   │   ├── package.json
+│   │   ├── nest.js
+│   │   ├── next.js
+│   │   ├── react.js
+│   │   └── turbo.js
+│   ├── github/
+│   │   ├── dependent-issues.yml
+│   │   └── pr-labeler.yml
+│   ├── prettier/
+│   │   ├── package.json
+│   │   └── index.js
+│   ├── tailwind/
+│   │   ├── package.json
+│   │   ├── index.ts
+│   │   └── postcss.js
+│   └── typescript/
+│       ├── base.json
+│       ├── nest.json
+│       └── react-library.json
+└── turbo.json

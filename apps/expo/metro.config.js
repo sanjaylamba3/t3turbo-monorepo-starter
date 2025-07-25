@@ -11,6 +11,7 @@ const config = withTurborepoManagedCache(
     configPath: "./tailwind.config.ts",
   }),
 );
+config.resolver.unstable_enablePackageExports = true;
 module.exports = config;
 
 /**

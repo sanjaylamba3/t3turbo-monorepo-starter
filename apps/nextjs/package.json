@@ -6,7 +6,7 @@
   "scripts": {
     "build": "pnpm with-env next build",
     "clean": "git clean -xdf .cache .next .turbo node_modules",
-    "dev": "pnpm with-env next dev --turbopack",
+    "dev": "pnpm with-env next dev --port 3000 --turbopack",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "start": "pnpm with-env next start",
@@ -24,6 +24,7 @@
     "@trpc/client": "catalog:",
     "@trpc/server": "catalog:",
     "@trpc/tanstack-react-query": "catalog:",
+    "lucide-react": "^0.525.0",
     "next": "^15.3.3",
     "react": "catalog:react19",
     "react-dom": "catalog:react19",

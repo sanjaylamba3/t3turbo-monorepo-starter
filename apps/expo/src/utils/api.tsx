@@ -5,12 +5,13 @@ import superjson from "superjson";
 
 import type { AppRouter } from "@acme/api";
 
-import { authClient } from "./auth";
+import { authClient } from "./auth-client";
 import { getBaseUrl } from "./base-url";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
+      staleTime: 1 * 60 * 1000, // 5 minutes
       // ...
     },
   },

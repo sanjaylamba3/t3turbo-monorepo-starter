@@ -1,14 +1,19 @@
-import type { Config } from "drizzle-kit";
+import { config } from "dotenv";
+import { defineConfig } from "drizzle-kit";
+
+config({ path: "../../.env" }); // Point to root .env file
 
 if (!process.env.POSTGRES_URL) {
-  throw new Error("Missing POSTGRES_URL");
-}
+    throw new Error("Missing POSTGRES_URL");
+  }
 
-const nonPoolingUrl = process.env.POSTGRES_URL.replace(":6543", ":5432");
-
-export default {
+export default defineConfig({
   schema: "./src/schema.ts",
+  out: "./migrations",
   dialect: "postgresql",
-  dbCredentials: { url: nonPoolingUrl },
+  dbCredentials: {
+    url: process.env.POSTGRES_URL!,
+  },
   casing: "snake_case",
-} satisfies Config;
+//   tablesFilter: ["acme_*"], // Adjust table prefix as needed
+});
