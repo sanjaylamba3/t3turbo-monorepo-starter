@@ -5,12 +5,12 @@
   "type": "module",
   "exports": {
     ".": {
-        "default": "./src/index.ts"
+      "default": "./src/index.ts"
     },
     "./utils": {
-        "default": "./src/utils.ts"
+      "default": "./src/utils.ts"
     }
-},
+  },
   "license": "MIT",
   "scripts": {
     "build": "tsc",

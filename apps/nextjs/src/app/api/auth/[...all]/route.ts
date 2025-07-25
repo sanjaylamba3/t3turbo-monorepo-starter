@@ -1,4 +1,4 @@
-import { auth } from "@acme/auth"
+import { auth } from "@acme/auth";
 
 export const GET = auth.handler;
 export const POST = auth.handler;

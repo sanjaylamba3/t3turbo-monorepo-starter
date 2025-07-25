@@ -2,19 +2,14 @@ import { headers } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-import { Button } from "@acme/ui/button";
-
 import { auth, getSession } from "@acme/auth";
+import { Button } from "@acme/ui/button";
 
 export async function AuthShowcase() {
   const session = await getSession(await headers());
 
   if (!session) {
-    return (
-      <Link href={"/login"} >
-        Sign in
-      </Link>
-    );
+    return <Link href={"/login"}>Sign in</Link>;
   }
 
   return (
