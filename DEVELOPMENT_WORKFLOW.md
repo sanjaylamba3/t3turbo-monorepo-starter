@@ -118,12 +118,12 @@ Start Development Servers
 # Install dependencies
 	pnpm add <package>            # Add to root
 	pnpm add <package> -w         # Add to workspace root
-	pnpm add <package> --filter @acme/nextjs  # Add to specific workspace
+	pnpm add <package> --filter @repo/nextjs  # Add to specific workspace
 	
 # Workspace-specific commands
-	pnpm -F @acme/nextjs add <package>        # Add to Next.js app
-	pnpm -F @acme/expo add <package>          # Add to Expo app
-	pnpm -F @acme/api add <package>           # Add to API package
+	pnpm -F @repo/nextjs add <package>        # Add to Next.js app
+	pnpm -F @repo/expo add <package>          # Add to Expo app
+	pnpm -F @repo/api add <package>           # Add to API package
 
 🔧 Troubleshooting Commands
 

@@ -5,7 +5,7 @@
 // import { nextCookies } from "better-auth/next-js";
 // import { oAuthProxy } from "better-auth/plugins";
 
-// import { db } from "@acme/db/client";
+// import { db } from "@repo/db/client";
 
 // export function initAuth(options: {
 //   baseUrl: string;

@@ -6,7 +6,7 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
 import { bearer } from "better-auth/plugins";
 
-import { db } from "@acme/db/client";
+import { db } from "@repo/db/client";
 
 import { authEnv } from "../env";
 

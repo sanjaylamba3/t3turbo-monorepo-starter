@@ -1,6 +1,6 @@
 "use server";
 
-import { auth } from "@acme/auth";
+import { auth } from "@repo/auth";
 
 // import { env } from "~/env";
 
