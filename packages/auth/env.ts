@@ -17,8 +17,7 @@ export function authEnv() {
       NEXT_PUBLIC_BETTER_AUTH_URL: z.string().nonempty(),
     },
     experimental__runtimeEnv: {
-      NEXT_PUBLIC_BETTER_AUTH_URL:
-        process.env.NEXT_PUBLIC_BETTER_AUTH_URL,
+      NEXT_PUBLIC_BETTER_AUTH_URL: process.env.NEXT_PUBLIC_BETTER_AUTH_URL,
     },
     skipValidation:
       !!process.env.CI || process.env.npm_lifecycle_event === "lint",
