@@ -6,19 +6,19 @@ export function authEnv() {
     server: {
       //   AUTH_DISCORD_ID: z.string().min(1),
       //   AUTH_DISCORD_SECRET: z.string().min(1),
-      EARNEX_BETTER_AUTH_SECRET:
+      BETTER_AUTH_SECRET:
         process.env.NODE_ENV === "production"
           ? z.string().min(1)
           : z.string().min(1).optional(),
-      EARNEX_BETTER_AUTH_URL: z.url(),
+      BETTER_AUTH_URL: z.url(),
       NODE_ENV: z.enum(["development", "production"]).optional(),
     },
     client: {
-      NEXT_PUBLIC_EARNEX_BETTER_AUTH_URL: z.string().nonempty(),
+      NEXT_PUBLIC_BETTER_AUTH_URL: z.string().nonempty(),
     },
     experimental__runtimeEnv: {
-      NEXT_PUBLIC_EARNEX_BETTER_AUTH_URL:
-        process.env.NEXT_PUBLIC_EARNEX_BETTER_AUTH_URL,
+      NEXT_PUBLIC_BETTER_AUTH_URL:
+        process.env.NEXT_PUBLIC_BETTER_AUTH_URL,
     },
     skipValidation:
       !!process.env.CI || process.env.npm_lifecycle_event === "lint",

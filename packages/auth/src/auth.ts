@@ -14,8 +14,8 @@ export const auth = betterAuth({
   database: drizzleAdapter(db, {
     provider: "pg",
   }),
-  baseURL: authEnv().NEXT_PUBLIC_EARNEX_BETTER_AUTH_URL,
-  secret: authEnv().EARNEX_BETTER_AUTH_SECRET,
+  baseURL: authEnv().NEXT_PUBLIC_BETTER_AUTH_URL,
+  secret: authEnv().BETTER_AUTH_SECRET,
   // ✅ Enable Email & Password Authentication
   emailAndPassword: {
     enabled: true,

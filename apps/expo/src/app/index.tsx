@@ -173,6 +173,7 @@ export default function Index() {
         />
 
         <CreatePost />
+        <Link href="/about">About</Link>
       </View>
     </SafeAreaView>
   );

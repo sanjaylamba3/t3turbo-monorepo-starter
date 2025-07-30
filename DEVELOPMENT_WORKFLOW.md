@@ -215,7 +215,7 @@ Start Development Servers
 
 
 # INITIAL STRUCTURE
-earnex-monorepo/
+monorepo/
 ├── .env.example
 ├── .github/
 │   ├── DISCUSSION_TEMPLATE/
