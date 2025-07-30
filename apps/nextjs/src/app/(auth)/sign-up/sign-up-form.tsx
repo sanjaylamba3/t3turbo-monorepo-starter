@@ -10,16 +10,16 @@ import { toast } from "sonner";
 import { z } from "zod";
 
 // import { authClient } from "~/auth/client";
-import { signUp } from "@acme/api/users";
-import { cn } from "@acme/ui";
-import { Button } from "@acme/ui/button";
+import { signUp } from "@repo/api/users";
+import { cn } from "@repo/ui";
+import { Button } from "@repo/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@acme/ui/card";
+} from "@repo/ui/card";
 import {
   Form,
   FormControl,
@@ -27,8 +27,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@acme/ui/form";
-import { Input } from "@acme/ui/input";
+} from "@repo/ui/form";
+import { Input } from "@repo/ui/input";
 
 const formSchema = z.object({
   email: z.string().email().min(2).max(50),

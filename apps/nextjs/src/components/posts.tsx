@@ -7,10 +7,10 @@ import {
 } from "@tanstack/react-query";
 import { toast } from "sonner";
 
-import type { RouterOutputs } from "@acme/api";
-import { CreatePostSchema } from "@acme/db/schema";
-import { cn } from "@acme/ui";
-import { Button } from "@acme/ui/button";
+import type { RouterOutputs } from "@repo/api";
+import { CreatePostSchema } from "@repo/db/schema";
+import { cn } from "@repo/ui";
+import { Button } from "@repo/ui/button";
 import {
   Form,
   FormControl,
@@ -18,10 +18,10 @@ import {
   FormItem,
   FormMessage,
   useForm,
-} from "@acme/ui/form";
-import { Input } from "@acme/ui/input";
+} from "@repo/ui/form";
+import { Input } from "@repo/ui/input";
 
-// import { toast } from "@acme/ui/components/ui/sonner";
+// import { toast } from "@repo/ui/components/ui/sonner";
 
 import { useTRPC } from "~/trpc/react";
 

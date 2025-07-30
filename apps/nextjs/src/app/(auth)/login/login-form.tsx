@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-// import { authClient } from "@acme/auth/client";
+// import { authClient } from "@repo/auth/client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,16 +10,16 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
 
-import { signIn } from "@acme/api/users";
-import { cn } from "@acme/ui";
-import { Button } from "@acme/ui/button";
+import { signIn } from "@repo/api/users";
+import { cn } from "@repo/ui";
+import { Button } from "@repo/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@acme/ui/card";
+} from "@repo/ui/card";
 import {
   Form,
   FormControl,
@@ -27,8 +27,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@acme/ui/form";
-import { Input } from "@acme/ui/input";
+} from "@repo/ui/form";
+import { Input } from "@repo/ui/input";
 
 const formSchema = z.object({
   email: z.string().email().min(2).max(50),
